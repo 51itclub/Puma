@@ -11,7 +11,12 @@ Template Name: Instagram 模板
                     <h2 class="grap--h2"><?php the_title();?></h2>
                 </header>
             <?php endwhile; ?>
-            <?php wp_fancy_instagram();?>
+            <?php if( function_exists('wp_fancy_instagram') ) {
+                wp_fancy_instagram();
+            } else {
+                echo '插件<code>wp fancy instagram</code>未安装，请后台搜索安装。'
+                }
+            ?>
         </section>
     </main>
 <?php get_footer();?>
